@@ -9,7 +9,7 @@ interface Props {
 
 const Question: React.FC<Props> = ({ question, choices, answer, onAnswer }) => {
 	return (
-		<div className="d-flex align-center text-center justify content-center flex column">
+		<div className="d-flex align-center text-center justify-content-center flex-column flex-wrap">
 			<h2 className="">{question}</h2>
 			<div className="">
 				{choices.map((choice) => (
