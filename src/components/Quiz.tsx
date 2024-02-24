@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Question from "./Question";
 
 const questions = [
+	//Array containing quiz questions with correct answers //
 	{
 		question:
 			"In what country did the first Starbucks open outside of North America?",
@@ -57,14 +58,15 @@ const questions = [
 		answer: "The Lion King",
 	},
 ];
-
+// Defining Quiz as functional component
 const Quiz: React.FC = () => {
-	const [currentQuestion, setCurrentQuestion] = useState(0);
-	const [score, setScore] = useState(0);
+	const [currentQuestion, setCurrentQuestion] = useState(0); //state variables for current question and users score
+	const [score, setScore] = useState(0); //reacthooks
 
 	const manageAnswer = (answer: string) => {
+		//manage answer and update score
 		if (answer === questions[currentQuestion].answer) {
-			setScore((prevScore) => prevScore + 1);
+			setScore((prevScore) => prevScore + 1); //if answer correct increase with one
 		}
 
 		const nextQuestion = currentQuestion + 1;
@@ -82,15 +84,15 @@ const Quiz: React.FC = () => {
 	return (
 		<div>
 			<h1 className="text-center">My Quiz</h1>
+			{/* Rendering with condition of Question component as long as there are more questions to answer */}
 			{currentQuestion < questions.length ? (
 				<Question
 					question={questions[currentQuestion].question}
 					choices={questions[currentQuestion].choices}
-					answer={questions[currentQuestion].answer}
 					onAnswer={manageAnswer}
 				/>
 			) : (
-				"null"
+				"null" //display null if all questions are answered
 			)}
 		</div>
 	);

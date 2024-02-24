@@ -3,11 +3,10 @@ import React from "react";
 interface Props {
 	question: string;
 	choices: string[];
-	answer: string;
 	onAnswer: (answer: string) => void;
 }
-
-const Question: React.FC<Props> = ({ question, choices, answer, onAnswer }) => {
+//question as functional component with react
+const Question: React.FC<Props> = ({ question, choices, onAnswer }) => {
 	return (
 		<div className="d-flex align-center text-center justify-content-center flex-column flex-wrap">
 			<h2 className="">{question}</h2>
