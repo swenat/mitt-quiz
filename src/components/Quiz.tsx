@@ -73,11 +73,11 @@ const Quiz: React.FC = () => {
 		if (nextQuestion < questions.length) {
 			setCurrentQuestion(nextQuestion);
 		} else {
-			alert(
-				`You have finished the Quiz. Your score is ${score + 1}/${
-					questions.length
-				}`
-			);
+			const resultMessage = `You have finished the Quiz! This Quiz will restart by pressing this alert. Your score is ${
+				score + 1
+			}/${questions.length}`;
+			alert(resultMessage);
+			window.location.reload();
 		}
 	};
 
