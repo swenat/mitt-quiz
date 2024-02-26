@@ -77,7 +77,6 @@ const Quiz: React.FC = () => {
 				score + 1
 			}/${questions.length}`;
 			alert(resultMessage);
-			window.location.reload();
 		}
 	};
 
