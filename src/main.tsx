@@ -15,7 +15,7 @@ const router = createBrowserRouter(
 	createRoutesFromElements(
 		<Route path="/" Component={AppLayout}>
 			<Route index Component={WelcomePage} />
-			<Route path="/Quiz" Component={Quiz} />
+			<Route path="/Quiz" element={<Quiz />} />
 			<Route path="*" element={<span>Sidan finns inte...</span>} />
 		</Route>
 	)
