@@ -62,8 +62,13 @@ const QuizContainer = styled.div`
 	text-align: center;
 `;
 const QuizTitle = styled.h1`
-	font-size: 2rem;
-	margin-bottom: 2rem;
+	font-size: 50px;
+	margin-bottom: 7px;
+	color: #000;
+	text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+	span {
+		color: #007bff;
+	}
 `;
 // Defining Quiz as functional component
 const Quiz: React.FC = () => {
@@ -86,7 +91,10 @@ const Quiz: React.FC = () => {
 	};
 	return (
 		<QuizContainer>
-			<QuizTitle>My Quiz</QuizTitle>
+			<QuizTitle>
+				Mixed
+				<span> Q</span>uestions
+			</QuizTitle>
 			{currentQuestion < questions.length ? (
 				<Question
 					question={questions[currentQuestion].question}
