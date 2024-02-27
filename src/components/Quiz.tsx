@@ -1,6 +1,6 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import Question from "./Question";
-
 const questions = [
 	//Array containing quiz questions with correct answers //
 	{
@@ -58,17 +58,22 @@ const questions = [
 		answer: "The Lion King",
 	},
 ];
+const QuizContainer = styled.div`
+	text-align: center;
+`;
+const QuizTitle = styled.h1`
+	font-size: 2rem;
+	margin-bottom: 2rem;
+`;
 // Defining Quiz as functional component
 const Quiz: React.FC = () => {
 	const [currentQuestion, setCurrentQuestion] = useState(0); //state variables for current question and users score
 	const [score, setScore] = useState(0); //reacthooks
-
 	const manageAnswer = (answer: string) => {
 		//manage answer and update score
 		if (answer === questions[currentQuestion].answer) {
 			setScore((prevScore) => prevScore + 1); //if answer correct increase with one
 		}
-
 		const nextQuestion = currentQuestion + 1;
 		if (nextQuestion < questions.length) {
 			setCurrentQuestion(nextQuestion);
@@ -79,22 +84,17 @@ const Quiz: React.FC = () => {
 			alert(resultMessage);
 		}
 	};
-
 	return (
-		<div>
-			<h1 className="text-center">My Quiz</h1>
-			{/* Rendering with condition of Question component as long as there are more questions to answer */}
+		<QuizContainer>
+			<QuizTitle>My Quiz</QuizTitle>
 			{currentQuestion < questions.length ? (
 				<Question
 					question={questions[currentQuestion].question}
 					choices={questions[currentQuestion].choices}
 					onAnswer={manageAnswer}
 				/>
-			) : (
-				"null" //display null if all questions are answered
-			)}
-		</div>
+			) : null}
+		</QuizContainer>
 	);
 };
-
 export default Quiz;
