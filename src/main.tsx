@@ -6,7 +6,7 @@ import {
 	createBrowserRouter,
 	createRoutesFromElements,
 } from "react-router-dom";
-import AppLayout from "./AppLayout";
+import AppLayout from "./AppLayout.tsx";
 import Quiz from "./components/Quiz";
 import "./main.css";
 import ResultPage from "./pages/ResultPage";

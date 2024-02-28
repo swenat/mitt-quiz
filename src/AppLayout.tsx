@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -14,25 +14,13 @@ const Main = styled.main`
 	text-align: center;
 `;
 
-const BackLink = styled(Link)`
-	display: block;
-	margin-top: 16px;
-	text-decoration: none;
-	color: #007bff; /* Bootstrap's primary color */
-	font-weight: bold;
-	&:hover {
-		text-decoration: underline;
-	}
-`;
-
 function AppLayout() {
 	return (
 		<>
 			<Container>
-				<Header>{/* Your header content goes here */}</Header>
+				<Header>{/* klistra in logotyp? */}</Header>
 				<Main>
 					<Outlet />
-					<BackLink to="/">Back to Welcomepage</BackLink>
 				</Main>
 			</Container>
 		</>
