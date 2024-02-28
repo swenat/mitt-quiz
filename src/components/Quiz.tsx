@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Question from "./Question";
+
 const questions = [
 	//Array containing quiz questions with correct answers //
 	{
@@ -74,6 +76,8 @@ const QuizTitle = styled.h1`
 const Quiz: React.FC = () => {
 	const [currentQuestion, setCurrentQuestion] = useState(0); //state variables for current question and users score
 	const [score, setScore] = useState(0); //reacthooks
+	const navigate = useNavigate();
+
 	const manageAnswer = (answer: string) => {
 		//manage answer and update score
 		if (answer === questions[currentQuestion].answer) {
@@ -83,10 +87,7 @@ const Quiz: React.FC = () => {
 		if (nextQuestion < questions.length) {
 			setCurrentQuestion(nextQuestion);
 		} else {
-			const resultMessage = `You have finished the Quiz! This Quiz will restart by pressing this alert. Your score is ${
-				score + 1
-			}/${questions.length}`;
-			alert(resultMessage);
+			navigate("/ResultPage", { state: { score: score } });
 		}
 	};
 	return (
