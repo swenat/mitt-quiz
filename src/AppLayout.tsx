@@ -6,9 +6,17 @@ const Container = styled.div`
 	max-width: 1280px;
 `;
 const Header = styled.header`
-	margin: 32px 0;
-	text-align: center;
+	height: 5px;
+	border: 5px;
 `;
+
+const Line = styled.div`
+	height: 3px;
+	width: 100%;
+	background-color: #007bff;
+	margin-top: 5px;
+`;
+
 const Main = styled.main`
 	margin: 32px 0;
 	text-align: center;
@@ -18,7 +26,9 @@ function AppLayout() {
 	return (
 		<>
 			<Container>
-				<Header>{/* klistra in logotyp? */}</Header>
+				<Header>
+					<Line></Line>
+				</Header>
 				<Main>
 					<Outlet />
 				</Main>
