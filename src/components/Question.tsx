@@ -16,6 +16,7 @@ const QuestionContainer = styled.div`
 `;
 const QuestionTitle = styled.h2`
 	font-family: "Georgia";
+	font-size: 20px;
 `;
 const ChoicesContainer = styled.div``;
 const ChoiceButton = styled.button`
