@@ -9,6 +9,7 @@ import {
 import AppLayout from "./AppLayout.tsx";
 import Quiz from "./components/Quiz";
 import "./main.css";
+import LostPage from "./pages/LostPage.tsx";
 import ResultPage from "./pages/ResultPage";
 import WelcomePage from "./pages/WelcomePage";
 
@@ -18,6 +19,7 @@ const router = createBrowserRouter(
 			<Route index Component={WelcomePage} />
 			<Route path="Quiz" Component={Quiz} />
 			<Route path="ResultPage" Component={ResultPage} />
+			<Route path="LostPage" Component={LostPage} />
 			<Route path="*" element={<span>Sidan finns inte...</span>} />
 		</Route>
 	)

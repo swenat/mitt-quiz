@@ -5,7 +5,7 @@ import styled from "styled-components";
 const Container = styled.div`
 	text-align: center;
 `;
-const Title = styled.h1`
+const WelcomeTitle = styled.h1`
 	font-size: 80px;
 	color: #007bff;
 	margin-bottom: 2px;
@@ -32,9 +32,9 @@ const EnterQuizButton = styled(Link)`
 const WelcomePage: React.FC = () => {
 	return (
 		<Container>
-			<Title>
+			<WelcomeTitle>
 				Welcome to <span>Quiztime</span>
-			</Title>
+			</WelcomeTitle>
 			<EnterQuizButton to="/quiz">Enter Quiz</EnterQuizButton>
 		</Container>
 	);

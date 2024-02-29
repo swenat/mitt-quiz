@@ -25,14 +25,21 @@ const BackLink = styled(Link)`
 		text-decoration: underline;
 	}
 `;
+interface ResultPageProps {
+	userName?: string;
+}
 
-const ResultPage: React.FC = () => {
+const ResultPage: React.FC<ResultPageProps> = ({ userName }) => {
 	const location = useLocation();
 	const finalScore = location.state?.score || 0;
+
 	return (
 		<ResultContainer>
 			<CompleteTitle> Quiz Completed!</CompleteTitle>
-			<p>Your final score is: {finalScore}</p>
+			<p>
+				Congratulations {userName ? `${userName}!` : ""} Your final score is:{" "}
+				{finalScore}
+			</p>
 			<BackLink to="/">Back to Welcomepage</BackLink>
 		</ResultContainer>
 	);

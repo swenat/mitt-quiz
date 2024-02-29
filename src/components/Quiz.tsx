@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import LostPage from "./../pages/LostPage";
 import Question from "./Question";
+import Timer from "./Timer";
 
 const questions = [
 	//Array containing quiz questions with correct answers //
@@ -76,7 +78,12 @@ const QuizTitle = styled.h1`
 const Quiz: React.FC = () => {
 	const [currentQuestion, setCurrentQuestion] = useState(0); //state variables for current question and users score
 	const [score, setScore] = useState(0); //reacthooks
+	const [isTimeout, setIsTimeout] = useState(false);
 	const navigate = useNavigate();
+
+	const handleTimeout = () => {
+		setIsTimeout(true);
+	};
 
 	const manageAnswer = (answer: string) => {
 		//manage answer and update score
@@ -87,22 +94,32 @@ const Quiz: React.FC = () => {
 		if (nextQuestion < questions.length) {
 			setCurrentQuestion(nextQuestion);
 		} else {
-			navigate("/ResultPage", { state: { score: score } });
+			navigate(isTimeout ? "/LostPage" : "/ResultPage", {
+				state: { score: score },
+			});
 		}
 	};
+
 	return (
 		<QuizContainer>
 			<QuizTitle>
 				Mixed
 				<span> Q</span>uestions
 			</QuizTitle>
-			{currentQuestion < questions.length ? (
-				<Question
-					question={questions[currentQuestion].question}
-					choices={questions[currentQuestion].choices}
-					onAnswer={manageAnswer}
-				/>
-			) : null}
+			{isTimeout ? (
+				<LostPage />
+			) : (
+				<>
+					<Timer duration={60} onTimeout={handleTimeout} />
+					{currentQuestion < questions.length ? (
+						<Question
+							question={questions[currentQuestion].question}
+							choices={questions[currentQuestion].choices}
+							onAnswer={manageAnswer}
+						/>
+					) : null}
+				</>
+			)}
 		</QuizContainer>
 	);
 };
