@@ -56,6 +56,7 @@ const LoadMoreButton = styled.button`
 
 interface Quote {
 	text: string;
+	author: string;
 }
 
 const QuotePage = () => {
@@ -67,8 +68,9 @@ const QuotePage = () => {
 			try {
 				const response = await fetch("https://type.fit/api/quotes");
 				const data: Quote[] = await response.json();
-				setQuotes(data);
-				setVisibleQuotes(data.slice(0, 5));
+				const quotesWithFixedAuthors = fixAuthors(data);
+				setQuotes(quotesWithFixedAuthors);
+				setVisibleQuotes(quotesWithFixedAuthors.slice(0, 5));
 			} catch (error) {
 				console.error("Error fetching data:", error);
 			}
@@ -87,17 +89,30 @@ const QuotePage = () => {
 		setVisibleQuotes((prevQuotes) => [...prevQuotes, ...nextQuotes]);
 	};
 
+	const fixAuthors = (data: Quote[]): Quote[] => {
+		return data.map((quote) => {
+			// Assuming the unwanted portion is always ", type.fit"
+			const author = quote.author.replace(", type.fit", "").trim();
+			return { ...quote, author };
+		});
+	};
+
 	return (
 		<Container>
 			<Title>Famous Quotes for fun</Title>
 			<QuoteList>
 				{visibleQuotes.map((quote, index) => (
-					<QuoteItem key={index}>{quote.text}</QuoteItem>
+					<QuoteItem key={index}>
+						<p>{quote.text}</p>
+						<p>{quote.author}</p>
+					</QuoteItem>
 				))}
 			</QuoteList>
-			<LoadMoreButton onClick={loadMoreQuotes}>
-				Load for more Quotes
-			</LoadMoreButton>
+			{visibleQuotes.length < quotes.length && (
+				<LoadMoreButton onClick={loadMoreQuotes}>
+					Load for more Quotes
+				</LoadMoreButton>
+			)}
 			<BackLink to="/">Back to Welcomepage</BackLink>
 		</Container>
 	);
