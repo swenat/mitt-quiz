@@ -35,6 +35,25 @@ const BackLink = styled(Link)`
 	}
 `;
 
+const LoadMoreButton = styled.button`
+	display: inline-block;
+	margin-top: 16px;
+	padding: 8px 16px;
+	background-color: #1e90ff;
+	color: #fff;
+	font-size: 20px;
+	text-decoration: none;
+	border-radius: 7px;
+	border-style: double;
+	font-size: 15px;
+	cursor: pointer;
+
+	&:hover {
+		background-color: #0039a6;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	}
+`;
+
 interface Quote {
 	text: string;
 }
@@ -76,7 +95,9 @@ const QuotePage = () => {
 					<QuoteItem key={index}>{quote.text}</QuoteItem>
 				))}
 			</QuoteList>
-			<button onClick={loadMoreQuotes}>Load more Quotes</button>
+			<LoadMoreButton onClick={loadMoreQuotes}>
+				Load for more Quotes
+			</LoadMoreButton>
 			<BackLink to="/">Back to Welcomepage</BackLink>
 		</Container>
 	);

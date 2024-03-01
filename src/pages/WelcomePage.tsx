@@ -14,7 +14,7 @@ const WelcomeTitle = styled.h1`
 		color: #000;
 	}
 `;
-const EnterQuizButton = styled(Link)`
+const EnterQuizButtonLink = styled(Link)`
 	display: inline-block;
 	margin-top: 16px;
 	padding: 8px 16px;
@@ -36,7 +36,7 @@ const WelcomePage: React.FC = () => {
 			<WelcomeTitle>
 				Welcome to <span>Quiztime</span>
 			</WelcomeTitle>
-			<EnterQuizButton to="/quiz">Enter Quiz</EnterQuizButton>
+			<EnterQuizButtonLink to="/quiz">Enter Quiz</EnterQuizButtonLink>
 		</Container>
 	);
 };
