@@ -5,6 +5,7 @@ const Container = styled.div`
 	margin: 0 auto;
 	max-width: 1280px;
 `;
+
 const Header = styled.header`
 	height: 5px;
 	border: 5px;
@@ -36,4 +37,5 @@ function AppLayout() {
 		</>
 	);
 }
+
 export default AppLayout;

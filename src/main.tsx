@@ -20,7 +20,7 @@ const router = createBrowserRouter(
 			<Route path="Quiz" Component={Quiz} />
 			<Route path="ResultPage" Component={ResultPage} />
 			<Route path="LostPage" Component={LostPage} />
-			<Route path="*" element={<span>Sidan finns inte...</span>} />
+			<Route path="*" element={<span>The page does not exist..</span>} />
 		</Route>
 	)
 );

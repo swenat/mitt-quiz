@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+
 interface Props {
 	question: string;
 	choices: string[];
 	onAnswer: (answer: string) => void;
 }
+
 // Styled components for the Question component
 const QuestionContainer = styled.div`
 	display: flex;

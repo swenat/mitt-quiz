@@ -29,6 +29,7 @@ const EnterQuizButton = styled(Link)`
 		box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 	}
 `;
+
 const WelcomePage: React.FC = () => {
 	return (
 		<Container>
@@ -39,4 +40,5 @@ const WelcomePage: React.FC = () => {
 		</Container>
 	);
 };
+
 export default WelcomePage;

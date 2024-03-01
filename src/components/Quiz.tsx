@@ -62,6 +62,7 @@ const questions = [
 		answer: "The Lion King",
 	},
 ];
+
 const QuizContainer = styled.div`
 	text-align: center;
 `;
@@ -74,6 +75,7 @@ const QuizTitle = styled.h1`
 		color: #007bff;
 	}
 `;
+
 // Defining Quiz as functional component
 const Quiz: React.FC = () => {
 	const [currentQuestion, setCurrentQuestion] = useState(0); //state variables for current question and users score
@@ -123,4 +125,5 @@ const Quiz: React.FC = () => {
 		</QuizContainer>
 	);
 };
+
 export default Quiz;
