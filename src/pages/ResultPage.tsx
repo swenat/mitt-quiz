@@ -25,6 +25,16 @@ const BackLink = styled(Link)`
 		text-decoration: underline;
 	}
 `;
+const QuoteLink = styled(Link)`
+	display: block;
+	margin-top: 16px;
+	text-decoration: none;
+	color: #007bff; /* Bootstrap's primary color */
+	font-weight: bold;
+	&:hover {
+		text-decoration: underline;
+	}
+`;
 
 const ResultPage: React.FC = () => {
 	const location = useLocation();
@@ -38,6 +48,7 @@ const ResultPage: React.FC = () => {
 				{finalScore}
 			</p>
 			<BackLink to="/">Back to Welcomepage</BackLink>
+			<QuoteLink to="/QuotePage">Your price for playing</QuoteLink>
 		</ResultContainer>
 	);
 };

@@ -10,16 +10,18 @@ import AppLayout from "./AppLayout.tsx";
 import Quiz from "./components/Quiz";
 import "./main.css";
 import LostPage from "./pages/LostPage.tsx";
+import QuotePage from "./pages/Quotepage.tsx";
 import ResultPage from "./pages/ResultPage";
 import WelcomePage from "./pages/WelcomePage";
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
-		<Route path="/" Component={AppLayout}>
-			<Route index Component={WelcomePage} />
-			<Route path="Quiz" Component={Quiz} />
-			<Route path="ResultPage" Component={ResultPage} />
-			<Route path="LostPage" Component={LostPage} />
+		<Route path="/" element={<AppLayout />}>
+			<Route index element={<WelcomePage />} />
+			<Route path="Quiz" element={<Quiz />} />
+			<Route path="ResultPage" element={<ResultPage />} />
+			<Route path="LostPage" element={<LostPage />} />
+			<Route path="QuotePage" element={<QuotePage />} />
 			<Route path="*" element={<span>The page does not exist..</span>} />
 		</Route>
 	)
