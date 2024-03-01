@@ -24,6 +24,10 @@ const QuoteItem = styled.li`
 	text-align: left;
 `;
 
+const QuoteItemAuthor = styled.p`
+	font-weight: bold;
+`;
+
 const BackLink = styled(Link)`
 	display: block;
 	margin-top: 16px;
@@ -104,7 +108,7 @@ const QuotePage = () => {
 				{visibleQuotes.map((quote, index) => (
 					<QuoteItem key={index}>
 						<p>{quote.text}</p>
-						<p>{quote.author}</p>
+						<QuoteItemAuthor>{quote.author}</QuoteItemAuthor>
 					</QuoteItem>
 				))}
 			</QuoteList>
